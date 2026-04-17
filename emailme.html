@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Arham's Node</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="myLogo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <img src="Logo.png" alt="Logo" class="logo-img">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="content-box">
+            <h1>Work With Me</h1>
+            
+            <form action="https://formspree.io/f/xvzvwjre" method="POST" id="contactForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" name="name" id="fullName" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" name="email" id="email" placeholder="example@gmail.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="projectDetails">Project Details......</label>
+                    <textarea name="message" id="projectDetails" rows="5" placeholder="Tell me about your project..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Proposal</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer-tag">
+        <strong>Designed & Developed by [Arham Mohsin]</strong>
+    </footer>
+
+    <script src="script.js"></script>
+    
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+            const name = document.getElementById("fullName").value;
+            const details = document.getElementById("projectDetails").value;
+            
+            const myEmail = "arhammohsin300@gmail.com"; 
+            const subject = encodeURIComponent(`New Project Proposal from ${name}`);
+            const body = encodeURIComponent(`Hello Arham,\n\nHere are my project details:\n${details}`);
+            
+            window.location.href = `mailto:${myEmail}?subject=${subject}&body=${body}`;
+        });
+    </script>
+</body>
+</html>
